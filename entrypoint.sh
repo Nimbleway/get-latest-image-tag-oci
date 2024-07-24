@@ -6,4 +6,9 @@ if [ -z "$IMAGE" ]; then
   IMAGE="$REPO_NAME:latest"
   echo "could not find an image with a tag other than latest, chrome or hackium, using latest"
 fi
+if [[ ! "$IMAGE" =~ $REPO_NAME ]]; then
+  IMAGE="$REPO_NAME:latest"
+  echo "could not find an image with a tag other than latest, chrome or hackium, using latest"
+fi
+
 echo "image=$(echo $IMAGE)" >> $GITHUB_OUTPUT
